@@ -17,5 +17,11 @@ prompt walters
 eval "$(starship init zsh)"
 neofetch
 
+# Sources
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # aliases
 alias update_grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias package-upgrade="yay -Syu"
+

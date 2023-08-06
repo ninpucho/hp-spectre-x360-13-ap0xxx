@@ -11,6 +11,12 @@ app_install=(
   timeshift-autosnap
   grub-btrfsd
   inotify-tools
+  ufw
+  wget
+  brave
+  flatpak
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 #function to show progress bar
@@ -46,7 +52,6 @@ install_software() {
 }
 
 
-
 # Install Package Manager YAY
 if [ ! -f /sbin/yay ]; then  
   echo -en "$CNT - Installing yay."
@@ -69,3 +74,12 @@ if [ ! -f /sbin/yay ]; then
     exit
   fi
 fi
+
+# Install Flatseal if flatpac is present
+if [ -f /sbin/flatpak ]; then
+  echo -en "$CNT - Installing Flatseal."
+  flatpak install flathub com.githib.tchx84.Flatseal &>> $INSTLOG
+  flatpak run com.githib.tchx84.Flatseal &>> $INSTLOG
+
+fi
+
